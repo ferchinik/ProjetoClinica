@@ -1,0 +1,95 @@
+<section id="anamnese-form-page" class="page">
+    <header class="page-header">
+        <h1 id="anamnese-form-title">Nueva Anamnesis</h1>
+        <a href="#" class="back-button" data-page="cliente-detalhes" id="back-to-client-details-anamnese-btn">
+            <i class="fas fa-arrow-left"></i> Volver a Detalles del Cliente
+        </a>
+    </header>
+    <div class="card">
+        <div class="card-header">
+            <h3 id="anamnese-form-cliente-nome">Anamnesis para: [Cargando nombre...]</h3>
+        </div>
+        <div class="card-body">
+            <form id="anamnese-form" class="form-grid">
+                <input type="hidden" id="anamnese-cliente-id-hidden" name="cliente_id">
+                <input type="hidden" id="anamnese-id-hidden" name="id"> <div class="form-group">
+                    <label for="anamnese-data">Fecha de la Anamnesis *</label>
+                    <input type="date" id="anamnese-data" name="data_anamnese" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-queixa-principal">Queja Principal</label>
+                    <textarea id="anamnese-queixa-principal" name="queixa_principal" rows="3" placeholder="¿Cuál es el motivo principal de la consulta?"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-historico-doenca-atual">Historial de la Enfermedad Actual (HEA)</label>
+                    <textarea id="anamnese-historico-doenca-atual" name="historico_doenca_atual" rows="4" placeholder="Detalles sobre la queja actual, inicio, evolución, síntomas asociados..."></textarea>
+                </div>
+
+                <div class="form-group full-width section-title-divider" style="margin-top:15px; padding-top:10px; border-top:1px solid var(--border-color);">
+                    <h4>Antecedentes y Hábitos</h4>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-antecedentes-pessoais">Antecedentes Personales (Enfermedades previas, cirugías, hospitalizaciones)</label>
+                    <textarea id="anamnese-antecedentes-pessoais" name="antecedentes_pessoais" rows="3"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-alergias">Alergias (Medicamentosas, alimentarias, otras)</label>
+                    <textarea id="anamnese-alergias" name="alergias" rows="2" placeholder="Ej: Dipirona, camarones, polen..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-medicamentos-em-uso">Medicamentos en Uso (Incluir anticonceptivos, suplementos)</label>
+                    <textarea id="anamnese-medicamentos-em-uso" name="medicamentos_em_uso" rows="3" placeholder="Nombre del medicamento, dosis, frecuencia..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-habitos-vida">Hábitos de Vida (Alimentación, sueño, actividad física)</label>
+                    <textarea id="anamnese-habitos-vida" name="habitos_vida" rows="3"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-habitos-nocivos">Hábitos Nocivos (Tabaquismo, alcoholismo, otras drogas)</label>
+                    <textarea id="anamnese-habitos-nocivos" name="habitos_nocivos" rows="2"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-antecedentes-familiares">Antecedentes Familiares Relevantes</label>
+                    <textarea id="anamnese-antecedentes-familiares" name="antecedentes_familiares" rows="2" placeholder="Enfermedades como diabetes, hipertensión, cáncer en la familia..."></textarea>
+                </div>
+
+                <div class="form-group full-width section-title-divider" style="margin-top:15px; padding-top:10px; border-top:1px solid var(--border-color);">
+                    <h4>Cuidados y Expectativas</h4>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-rotina-cuidados-pele">Rutina de Cuidados de la Piel/Cuerpo</label>
+                    <textarea id="anamnese-rotina-cuidados-pele" name="rotina_cuidados_pele" rows="3" placeholder="Productos utilizados, frecuencia..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-procedimentos-anteriores">Procedimientos Estéticos Anteriores</label>
+                    <textarea id="anamnese-procedimentos-anteriores" name="procedimentos_esteticos_anteriores" rows="3" placeholder="Cuáles, cuándo, resultados, complicaciones..."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-expectativas-tratamento">Expectativas con el Tratamiento</label>
+                    <textarea id="anamnese-expectativas-tratamento" name="expectativas_tratamento" rows="3"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="anamnese-observacoes-gerais">Observaciones Generales / Adicionales</label>
+                    <textarea id="anamnese-observacoes-gerais" name="observacoes_gerais" rows="4"></textarea>
+                </div>
+
+                <div class="form-group full-width form-actions">
+                    <button type="button" class="btn-outline cancel-btn" id="cancel-anamnese-form-btn">Cancelar</button>
+                    <button type="submit" class="btn-primary save-btn">Guardar Anamnesis</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+<section id="produto-editar" class="page">
+    <header class="page-header">
+      <h1>Editar Producto</h1>
+      <a href="#" class="back-button" data-page="estoque">
+        <i class="fas fa-arrow-left"></i> Volver a Inventario
+      </a>
+    </header>
+  
+    <div class="card">
+      <div class="card-header">
+        <h3>Información del Producto</h3>
+      </div>
+      <div class="card-body">
+        <form id="edit-product-form" class="form-grid">
+          <input type="hidden" id="product-id" name="id">
+          
+          <!-- Campo para upload de imagen -->
+          <div class="form-group full-width">
+            <label>Foto del Producto</label>
+            <div class="file-upload">
+              <input type="file" id="edit-product-photo" name="photo" accept="image/*" />
+              <label for="edit-product-photo" class="file-upload-label">
+                <i class="fas fa-cloud-upload-alt"></i> Cambiar Imagen
+              </label>
+              <div class="file-preview">
+                <img id="edit-preview-image" src="" alt="Vista previa de la imagen"
+                  style="width: 300px; height: 300px; object-fit: cover; margin-top: 10px;">
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <label for="edit-product-title">Título *</label>
+            <input type="text" id="edit-product-title" name="title" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="edit-categoriaSelect">Categoría *</label>
+            <select id="edit-categoriaSelect" name="category" required>
+              <option value="" disabled selected>Seleccionar categoría</option>
+            </select>
+          </div>
+  
+          <div class="form-group" id="edit-novaCategoria-group" style="display: none;">
+            <label for="edit-novaCategoria">Nueva Categoría *</label>
+            <input type="text" id="edit-novaCategoria" name="novaCategoria" placeholder="Ingrese nueva categoría" />
+          </div>
+  
+          <div class="form-group">
+            <label for="edit-product-price">Valor (₲) *</label>
+            <input type="number" id="edit-product-price" name="price" min="0" required />
+          </div>
+  
+          <div class="form-group">
+            <label for="edit-product-stock">Stock *</label>
+            <input type="number" id="edit-product-stock" name="stock" min="0" required />
+          </div>
+  
+          <!-- Botões de ação -->
+          <div class="form-group full-width form-actions">
+            <button type="button" class="btn-outline cancel-btn">Cancelar</button>
+            <button type="submit" class="btn-primary save-btn">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section> 

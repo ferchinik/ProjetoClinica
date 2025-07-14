@@ -1,0 +1,199 @@
+/* Estilos para a página de novo produto */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.2);
+    outline: none;
+}
+
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+    border-color: var(--danger-color);
+}
+
+.form-group .error-message {
+    color: var(--danger-color);
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.file-upload {
+    position: relative;
+    width: 100%;
+}
+
+.file-upload input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.file-upload-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-upload-label i {
+    margin-right: 8px;
+}
+
+.file-upload-label:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.file-preview {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+}
+
+.file-preview-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.file-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-preview-item .remove-file {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+/* Estilos para os cards de produto no estoque */
+.product-card {
+    /* Seus estilos existentes para o card */
+    display: flex;
+    flex-direction: column;
+    /* ... outros estilos ... */
+}
+
+.product-details {
+    /* Seus estilos existentes */
+    flex-grow: 1;
+    /* Permite que esta seção cresça */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    /* Ou space-around, ou flex-start */
+    gap: 8px;
+    /* Espaço entre os botões */
+    margin-top: auto;
+    /* Empurra os botões para baixo se .product-details for flex column */
+    padding-top: 10px;
+    /* Espaço acima dos botões */
+}
+
+/* Ajusta o tamanho dos botões especificamente dentro dos cards */
+.product-actions .btn-outline {
+    padding: 6px 10px;
+    /* Diminui o padding interno */
+    font-size: 0.85rem;
+    /* Diminui o tamanho da fonte */
+    flex-grow: 1;
+    /* Faz os botões tentarem ocupar espaço igual (opcional) */
+    flex-basis: 0;
+    /* Complementa flex-grow */
+    white-space: nowrap;
+    /* Evita que o texto quebre linha */
+}
+
+.product-actions .btn-outline i {
+    margin-right: 5px;
+    /* Espaço entre ícone e texto */
+}
+
+/* Estilos específicos para o formulário do produto */
+#product-price::before {
+    content: "€";
+    position: absolute;
+    left: 10px;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}

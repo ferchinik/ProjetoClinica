@@ -1,0 +1,55 @@
+<section id="agendamento" class="page">
+    <header class="page-header">
+        <h1>Agenda de Citas</h1>
+        <button class="btn-primary" data-page="nueva-cita"><i class="fas fa-plus"></i> Nueva Cita</button>
+    </header>
+
+    <div class="todays-appointments-card">
+        <div class="card-header">
+            <h3 id="data-atual">Citas para <span class="date-display">Seleccione un día</span></h3>
+        </div>
+        <div class="card-body">
+            <div id="appointments-list" class="todays-appointments-list">
+                <p style="text-align: center; padding: 20px; color: var(--text-secondary);">Seleccione un día para ver los detalles.</p>
+            </div>
+
+            <template id="appointment-template">
+                <div class="today-appointment-item" data-appointment-id="">
+                    <div class="appointment-time">
+                        <span class="time">--:--</span>
+                        <span class="duration">1h</span> </div>
+                    <div class="appointment-details">
+                        <div class="client-info">
+                            <img src="/img/users/default-avatar.png" alt="Cliente" class="client-photo">
+                            <div>
+                                <h4 class="client-name">Nombre del Cliente</h4>
+                                <p class="appointment-type">Tipo de Consulta</p>
+                                <p class="appointment-value" style="font-size: 0.9em; color: var(--text-secondary);">Gs. <span class="value">--</span></p>
+                            </div>
+                        </div>
+                        <div class="appointment-status">Estado</div>
+                        <div class="appointment-actions">
+                            <button class="btn-icon confirm-btn" title="Confirmar Cita" data-action="confirm"><i class="fas fa-check-circle"></i></button>
+                            <button class="btn-icon complete-btn" title="Marcar como Realizada" data-action="complete"><i class="fas fa-check-double"></i></button>
+                            <button class="btn-icon edit-btn" title="Editar"><i class="fas fa-edit"></i></button>
+                            <button class="btn-icon delete-btn" title="Eliminar"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <div class="calendar-nav">
+                <button class="prev-month" title="Mes Anterior"><i class="fas fa-chevron-left"></i></button>
+                <div class="current-month">Mes Año</div>
+                <button class="next-month" title="Próximo Mes"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div id="calendar-grid" class="calendar-grid">
+            </div>
+    </div>
+</section>

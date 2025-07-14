@@ -1,0 +1,65 @@
+<section id="financeiro" class="page">
+    <header class="page-header">
+        <h1>Gestión Financiera</h1>
+        <div class="header-actions">
+            <button class="btn-primary" id="add-transaction-btn"><i class="fas fa-plus"></i> Nuevo Registro</button>
+            <button class="btn-primary" id="export-transactions-btn"><i class="fas fa-file-export"></i>
+                Exportar</button>
+        </div>
+    </header>
+
+    <div class="financial-summary-cards">
+        <div class="summary-card">
+            <div class="icon income"><i class="fas fa-arrow-up"></i></div>
+            <div class="value" id="summary-ingresos">₲ 0</div>
+            <div class="label">Ingresos (Mes)</div>
+        </div>
+        <div class="summary-card">
+            <div class="icon expense"><i class="fas fa-arrow-down"></i></div>
+            <div class="value" id="summary-gastos">₲ 0</div>
+            <div class="label">Gastos (Mes)</div>
+        </div>
+        <div class="summary-card">
+            <div class="icon balance"><i class="fas fa-wallet"></i></div>
+            <div class="value" id="summary-balance">₲ 0</div>
+            <div class="label">Balance (Mes)</div>
+        </div>
+    </div>
+    <div class="transactions-container">
+        <div class="transactions-header">
+            <h3>Transacciones Recientes</h3>
+            <div class="filter-options">
+                <select id="filter-type">
+                    <option value="">Todos</option>
+                    <option value="Ingreso">Ingresos</option>
+                    <option value="Gasto">Gastos</option>
+                </select>
+                <select id="financeiro-filter-category">
+                    <option value="">Todas las Categorías</option>
+                </select>
+                <select id="filter-month">
+                    <option value="current_month">Mes Actual</option>
+                    <option value="last_month">Mes Anterior</option>
+                </select>
+            </div>
+        </div>
+
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Descripción</th>
+                    <th>Categoría</th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="transactions-table-body">
+                <tr>
+                    <td colspan="6" style="text-align:center; padding: 20px;">Carregando...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

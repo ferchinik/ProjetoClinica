@@ -1,0 +1,103 @@
+<!-- components/relatorios.html -->
+<section id="relatorios" class="page">
+    <header class="page-header">
+      <h1>Informes</h1>
+      <div class="header-actions">
+        <!-- Ativei os botões e adicionei os IDs para JS -->
+        <button id="exportBtn" class="btn-primary" title="Exportar para Excel">
+          <i class="fas fa-file-export"></i> Exportar
+        </button>
+        <button id="printBtn" class="btn-primary" title="Imprimir relatório">
+          <i class="fas fa-print"></i> Imprimir
+        </button>
+      </div>
+    </header>
+  
+    <nav class="reports-navbar">
+      <div class="filter-container">
+        <label for="reportStartDate">Desde</label>
+        <input type="date" id="reportStartDate" name="startDate">
+  
+        <label for="reportEndDate">Hasta</label>
+        <input type="date" id="reportEndDate" name="endDate">
+  
+        <button class="btn-primary" id="updateReportBtn">
+          <i class="fas fa-sync"></i> Actualizar
+        </button>
+      </div>
+    </nav>
+  
+    <div class="report-container">
+      <div class="report-summary">
+        <div class="summary-card">
+          <div class="value" id="report-summary-faturamento">₲ 0</div>
+          <div class="label">Facturación Total (Período)</div>
+        </div>
+        <div class="summary-card">
+          <div class="value" id="report-summary-citas">0</div>
+          <div class="label">Citas (Período)</div>
+        </div>
+        <div class="summary-card">
+          <div class="value" id="report-summary-novos">0</div>
+          <div class="label">Nuevos Clientes (Período)</div>
+        </div>
+        <div class="summary-card">
+          <div class="value" id="report-summary-ticket">₲ 0</div>
+          <div class="label">Ticket Medio (Período)</div>
+        </div>
+      </div>
+      <div class="report-charts">
+        <div class="report-card">
+          <div class="card-header">
+            <h3>Facturación por Día</h3>
+          </div>
+          <div class="card-body" style="position: relative;">
+            <canvas id="relatorioFaturamentoDiarioChart" class="report-chart" style="min-height: 250px;"></canvas>
+            <p id="chartFaturamentoLoading" class="loading-message" style="display: none;">
+              Carregando gráfico...
+            </p>
+            <p id="chartFaturamentoError" class="error-message" style="display: none;">
+            </p>
+          </div>
+        </div>
+  
+        <div class="report-card">
+          <div class="card-header">
+            <h3>Procedimientos Más Realizados</h3>
+          </div>
+          <div class="card-body" style="position: relative;">
+            <canvas id="relatorioProcedimentosChart" class="report-chart" style="min-height: 250px;"></canvas>
+            <p id="chartProcedimentosLoading" class="loading-message" style="display: none;">
+              Carregando gráfico...
+            </p>
+            <p id="chartProcedimentosError" class="error-message" style="display: none;">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="report-table-container card">
+        <div class="card-header">
+          <h3>Detalle de Citas (Período Selecionado)</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="table-responsive">
+            <table class="report-table appointments-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Cliente</th>
+                  <th>Procedimiento</th>
+                  <th>Profesional</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody id="report-appointments-tbody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="/js/forms/relatorios.js"></script>

@@ -1,0 +1,58 @@
+<section id="financeiro-novo" class="page">
+    <header class="page-header">
+        <h1>Nuevo Registro Financiero</h1>
+        <a href="#" class="back-button" data-page="financeiro"><i class="fas fa-arrow-left"></i> Volver a Finanzas</a>
+    </header>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Detalles de la Transacción</h3>
+        </div>
+        <div class="card-body">
+            <form id="transaction-form" class="form-grid">
+                <div class="form-group">
+                    <label for="trans-date">Fecha *</label>
+                    <input type="date" id="trans-date" name="data" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-type">Tipo *</label>
+                    <select id="trans-type" name="tipo" required>
+                        <option value="" disabled selected hidden>Seleccione...</option>
+                        <option value="Ingreso">Ingreso</option>
+                        <option value="Gasto">Gasto</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="trans-description">Descripción *</label>
+                    <input type="text" id="trans-description" name="descricao" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-category">Categoría *</label>
+                    <select id="trans-category" name="categoria" required>
+                        <option value="" disabled selected hidden>Seleccione...</option>
+                        <option value="Corporal">Corporal</option>
+                        <option value="Facial">Facial</option>
+                        <option value="Eventos">Eventos</option>
+                        <option value="Cursos">Cursos</option>
+                        <option value="Salario">Salario</option>
+                        <option value="Gastos Fixos">Gastos Fixos</option>
+                        <option value="Otros">Otros</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="trans-value">Valor (Gs.) *</label>
+                    <input type="number" id="trans-value" name="valor" step="0.01" min="0.01" required placeholder="Ej: 150.50">
+                </div>
+
+                <div class="form-group full-width form-actions">
+                     <button type="button" class="btn-outline cancel-btn" data-page="financeiro">Cancelar</button>
+                    <button type="submit" class="btn-primary save-btn">Guardar Registro</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

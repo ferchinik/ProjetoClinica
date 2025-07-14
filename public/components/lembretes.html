@@ -1,0 +1,62 @@
+<section id="lembretes" class="page">
+    <header class="page-header">
+        <h1>Notas y Recordatorios</h1>
+    </header>
+
+    <div class="lembretes-container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Nueva Nota</h3>
+            </div>
+            <div class="card-body">
+                <form id="lembrete-form" class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="lembrete-titulo">Título *</label>
+                        <input type="text" id="lembrete-titulo" name="titulo" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="lembrete-texto">Contenido *</label>
+                        <textarea id="lembrete-texto" name="texto" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lembrete-prioridade">Prioridad</label>
+                        <select id="lembrete-prioridade" name="prioridade">
+                            <option value="baixa">Baja</option>
+                            <option value="media" selected>Media</option>
+                            <option value="alta">Alta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lembrete-data">Fecha de Recordatorio</label>
+                        <input type="datetime-local" id="lembrete-data" name="data">
+                    </div>
+
+                    <div class="form-group full-width form-actions">
+                        <button type="submit" class="btn-primary">Guardar Nota</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                <h3>Mis Notas</h3>
+                <div class="card-header-actions">
+                    <select id="filtro-prioridade" class="form-control">
+                        <option value="">Todas las prioridades</option>
+                        <option value="baixa">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-body">
+                <div id="lembretes-grid" class="grid-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

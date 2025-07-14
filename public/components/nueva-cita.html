@@ -1,0 +1,60 @@
+<section id="nueva-cita" class="page">
+    <div class="content-wrapper">
+        <header class="page-header">
+            <h1>Nueva Cita</h1>
+            <a href="#" class="back-button" data-page="agendamento"><i class="fas fa-arrow-left"></i> Volver a Agenda</a>
+        </header>
+
+        <div class="form-container">
+            <form id="nuevaCitaForm" class="standard-form">
+                <div class="form-group">
+                    <label for="pacienteName">Nome do Paciente</label>
+                    <input type="text"
+                           id="pacienteName"
+                           name="pacienteName"
+                           list="clientesList"
+                           autocomplete="off"
+                           placeholder="Digite para buscar pacientes..."
+                           required>
+                    <datalist id="clientesList">
+                        </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointmentDate">Dia</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointmentTime">Horário</label>
+                    <input type="time" id="appointmentTime" name="appointmentTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointmentType">Tipo da Consulta</label>
+                    <input type="text" id="appointmentType" name="appointmentType" placeholder="Ex: Limpeza Facial, Consulta Retorno" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="professional">Profissional</label>
+                    <select id="professional" name="professional" required>
+                        <option value="">Selecione o profissional</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="appointmentValue">Valor da Consulta (Gs.)</label>
+                    <input type="number" id="appointmentValue" name="appointmentValue" step="0.01" min="0" placeholder="Ex: 150.50">
+                     </div>
+                <div class="form-group full-width"> <label for="observacoes">Observações</label>
+                     <textarea id="observacoes" name="observacoes" rows="3"></textarea>
+                 </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Agendar</button>
+                    <button type="button" class="btn btn-secondary cancel-btn" data-page="agendamento">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

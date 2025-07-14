@@ -1,0 +1,69 @@
+<section id="editar-cita" class="page">
+    <div class="content-wrapper">
+        <header class="page-header">
+            <h1>Editar Cita</h1>
+            <a href="#" class="back-button" data-page="agendamento"><i class="fas fa-arrow-left"></i> Volver a Agenda</a>
+        </header>
+
+        <div class="form-container card"> <div class="card-header">
+                <h3>Detalles de la Cita</h3>
+            </div>
+            <div class="card-body">
+                <form id="editarCitaForm" class="standard-form form-grid"> <input type="hidden" id="appointmentId" name="id">
+
+                    <div class="form-group">
+                        <label for="editPacienteName">Nombre del Paciente *</label>
+                        <input type="text"
+                               id="editPacienteName"
+                               name="pacienteName"
+                               list="clientesListEdit" autocomplete="off"
+                               placeholder="Nombre del paciente..."
+                               required>
+                        <datalist id="clientesListEdit">
+                            </datalist>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editAppointmentDate">Día *</label>
+                        <input type="date" id="editAppointmentDate" name="appointmentDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editAppointmentTime">Horario *</label>
+                        <input type="time" id="editAppointmentTime" name="appointmentTime" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editAppointmentType">Tipo de Consulta *</label>
+                        <input type="text" id="editAppointmentType" name="appointmentType" placeholder="Ej: Limpieza Facial, Consulta de Retorno" required>
+                    </div>
+
+                     <div class="form-group">
+                        <label for="editAppointmentStatus">Estado *</label>
+                        <select id="editAppointmentStatus" name="status" required>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Confirmado">Confirmado</option>
+                            <option value="Cancelado">Cancelado</option>
+                            <option value="Realizado">Realizado</option>
+                            <option value="No se presentó">No se presentó</option> </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editProfessional">Profesional *</label>
+                        <select id="editProfessional" name="professional" required>
+                            <option value="">Seleccione el profesional</option>
+                            </select>
+                    </div>
+
+                     <div class="form-group full-width"> <label for="editObservacoes">Observaciones</label>
+                        <textarea id="editObservacoes" name="observacoes" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group full-width form-actions"> <button type="button" class="btn btn-secondary cancel-btn" data-page="agendamento">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar Cita</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

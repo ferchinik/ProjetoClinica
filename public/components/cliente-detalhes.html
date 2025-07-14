@@ -1,0 +1,235 @@
+<section id="cliente-detalhes" class="page">
+    <header class="page-header">
+        <div class="page-header-nav">
+            <a href="#" class="back-button" data-page="clientes"><i class="fas fa-arrow-left"></i> Volver</a>
+            <h1>Detalles del Cliente</h1>
+        </div>
+        <div class="action-buttons">
+            <button class="btn-primary" id="detalhes-nova-cita-btn"><i class="fas fa-calendar-plus"></i> Nueva Cita</button>
+            <button class="btn-outline" id="detalhes-editar-btn"><i class="fas fa-edit"></i> Editar Cliente</button>
+        </div>
+    </header>
+
+    <div id="cliente-detalhes-feedback" style="margin-bottom: 15px;"></div>
+
+    <div class="cliente-detalhes-grid">
+        <div class="card">
+            <div class="card-header">
+                <h3>Información Personal</h3>
+            </div>
+            <div class="card-body">
+                <div class="cliente-profile">
+                    <div class="cliente-avatar">
+                        <img id="detalhes-cliente-avatar" src="img/users/default-avatar.png" alt="Foto del cliente">
+                    </div>
+                    <div class="cliente-info">
+                        <h2 id="detalhes-cliente-nome">Cargando...</h2>
+                        <ul class="info-list">
+                            <li id="detalhes-cliente-telefone"><i class="fas fa-phone"></i> Cargando...</li>
+                            <li id="detalhes-cliente-email"><i class="fas fa-envelope"></i> Cargando...</li>
+                            <li id="detalhes-cliente-nascimento"><i class="fas fa-calendar-day"></i> Cargando...</li>
+                            <li id="detalhes-cliente-endereco"><i class="fas fa-map-marker-alt"></i> Cargando...</li>
+                            <li id="detalhes-cliente-profissao"><i class="fas fa-briefcase"></i> Cargando...</li>
+                            <li id="detalhes-cliente-documento"><i class="fas fa-id-card"></i> Cargando...</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cliente-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Primera Visita</span>
+                        <span class="stat-value" id="detalhes-stat-primeira-visita">--/--/----</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Última Visita</span>
+                        <span class="stat-value" id="detalhes-stat-ultima-visita">--/--/----</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total de Citas</span>
+                        <span class="stat-value" id="detalhes-stat-total-citas">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Inversión Total</span>
+                        <span class="stat-value" id="detalhes-stat-inversao-total">Gs. 0</span>
+                    </div>
+                </div>
+                 <div class="cliente-observacoes" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--border-color);">
+                    <h4>Observaciones:</h4>
+                    <p id="detalhes-cliente-observacoes" style="white-space: pre-wrap; color: var(--text-secondary);">Cargando...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Procedimientos Realizados</h3>
+            </div>
+            <div class="card-body">
+                <div class="timeline" id="detalhes-timeline-procedimentos">
+                    <p class="placeholder-message" style="text-align: center; padding: 10px; color: var(--text-secondary);">Cargando historial...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Próximas Citas</h3>
+            </div>
+            <div class="card-body">
+                 <div class="appointments-list" id="detalhes-proximas-citas">
+                    <p class="placeholder-message" style="text-align: center; padding: 10px; color: var(--text-secondary);">Cargando próximas citas...</p>
+                </div>
+                <button class="btn-outline btn-block mt-20 btn-nova-cita-detalhes" id="detalhes-agendar-nova-cita-btn">
+                    <i class="fas fa-calendar-plus"></i> Agendar Nueva Cita
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Medios Antes/Después</h3> <button class="btn-sm btn-primary" id="detalhes-agregar-fotos-btn" title="Agregar Nuevos Medios">
+                    <i class="fas fa-photo-video"></i> Agregar
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="before-after-container" id="detalhes-fotos">
+                    <p class="placeholder-message" style="text-align: center; padding: 10px; color: var(--text-secondary);">Cargando medios...</p>
+                </div>
+                 <template id="photo-pair-template">
+                    <div class="before-after-item" style="margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color);">
+                        <p class="photo-description" style="font-weight: 500; margin-bottom: 10px; font-size: 0.9em; color: var(--text-primary);"></p>
+                        <div class="before-after-images" style="display: flex; gap: 15px; justify-content: space-around; flex-wrap: wrap;">
+                            <div class="media-container antes" style="text-align: center; flex-basis: 45%; min-width: 120px;">
+                                <span class="media-label" style="display:block; margin-bottom: 5px; font-size: 0.8em; color: var(--text-secondary);">Antes</span>
+                                </div>
+                            <div class="media-container depois" style="text-align: center; flex-basis: 45%; min-width: 120px;">
+                                <span class="media-label" style="display:block; margin-bottom: 5px; font-size: 0.8em; color: var(--text-secondary);">Depois</span>
+                                </div>
+                        </div>
+                        <div class="photo-actions" style="text-align: right; margin-top: 10px;">
+                             <button class="btn-icon btn-sm delete-photo-btn" title="Excluir Par de Mídias">
+                                 <i class="fas fa-trash" style="color: var(--danger-color);"></i>
+                             </button>
+                         </div>
+                    </div>
+                 </template>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Medidas Corporales</h3>
+                <div>
+                    <button class="btn-secondary btn-sm" id="toggle-medidas-btn" title="Ver/Ocultar Histórico de Medidas" style="margin-right: 10px;">
+                        <i class="fas fa-eye"></i> Ver Histórico
+                    </button>
+                    <button class="btn-primary btn-sm" id="registrar-novas-medidas-btn" title="Registrar Novas Medidas">
+                        <i class="fas fa-plus-circle"></i> Registrar
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="body-measurements collapsible-content" id="detalhes-medidas-content" style="display: none;">
+                    <p class="placeholder-message" style="text-align: center; padding: 10px; color: var(--text-secondary);">
+                        Cargando medidas...
+                    </p>
+                </div>
+                <template id="medida-item-template">
+                    <div class="medida-historico-item">
+                        <div class="medida-header">
+                            <strong>Data da Medição: <span class="data-medicao-display">DD/MM/AAAA</span></strong>
+                            <div class="medida-actions">
+                                <button class="btn-icon btn-sm edit-medida-btn" title="Editar Medida (Não implementado)" disabled>
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn-icon btn-sm delete-medida-btn" title="Excluir Medida">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="medidas-grid-display">
+                            <div class="medida-valor"><span>Peso:</span> <span class="valor peso_kg">--</span> kg</div>
+                            <div class="medida-valor"><span>Altura:</span> <span class="valor altura_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>IMC:</span> <span class="valor imc">--</span></div>
+                            <div class="medida-valor"><span>% Gordura:</span> <span class="valor perc_gordura_corporal">--</span> %</div>
+                            <div class="medida-valor"><span>Massa Muscular:</span> <span class="valor massa_muscular_kg">--</span> kg</div>
+                            <div class="medida-valor"><span>Braço D:</span> <span class="valor circ_braco_d_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Braço E:</span> <span class="valor circ_braco_e_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Antebraço D:</span> <span class="valor circ_antebraco_d_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Antebraço E:</span> <span class="valor circ_antebraco_e_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Peitoral:</span> <span class="valor circ_peitoral_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Abdômen:</span> <span class="valor circ_abdomen_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Cintura:</span> <span class="valor circ_cintura_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Quadril:</span> <span class="valor circ_quadril_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Coxa D:</span> <span class="valor circ_coxa_d_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Coxa E:</span> <span class="valor circ_coxa_e_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Panturrilha D:</span> <span class="valor circ_panturrilha_d_cm">--</span> cm</div>
+                            <div class="medida-valor"><span>Panturrilha E:</span> <span class="valor circ_panturrilha_e_cm">--</span> cm</div>
+                        </div>
+                        <div class="medida-observacoes">
+                            <span>Observações:</span> <p class="obs-texto">--</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Anamnesis</h3>
+                <div>
+                    <button class="btn-secondary btn-sm" id="toggle-anamnese-btn" title="Ver/Ocultar Anamnesis Actual" style="margin-right: 10px;">
+                        <i class="fas fa-eye"></i> Ver Actual
+                    </button>
+                    <button class="btn-sm btn-outline" id="detalhes-editar-anamnese-btn" title="Registrar Nueva o Editar Anamnesis">
+                        <i class="fas fa-file-medical-alt"></i> Ver/Registrar / Editar
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="anamnesis-data collapsible-content" id="detalhes-anamnese-content" style="display: none;">
+                    <p class="placeholder-message" style="text-align: center; padding: 10px; color: var(--text-secondary);">
+                        Cargando datos de la anamnesis...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="upload-photo-modal" class="modal" style="display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center;">
+        <div class="modal-content" style="background-color: var(--bg-secondary); padding: 20px; border-radius: var(--radius); width: 90%; max-width: 500px; box-shadow: var(--shadow);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                 <h2 style="margin:0;">Agregar Medios Antes/Después</h2>
+                 <span class="close-modal-btn" style="font-size: 24px; cursor: pointer; font-weight: bold;">&times;</span>
+            </div>
+            <form id="upload-photo-form">
+                <input type="hidden" name="clienteId" id="upload-cliente-id">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="foto-antes" style="display: block; margin-bottom: 5px;">Medio Antes * (Imagen o Video)</label>
+                    <input type="file" id="foto-antes" name="foto_antes" accept="image/*,video/mp4,video/quicktime,video/x-msvideo,video/webm" required style="display: block; width: 100%;">
+                    <div id="preview-antes-container" style="margin-top: 5px;">
+                        <img id="preview-antes-img" src="#" alt="Vista Previa Antes" style="max-width: 100px; max-height: 100px; display: none;" />
+                        <video id="preview-antes-vid" style="max-width: 150px; max-height: 100px; display: none;" controls></video>
+                        <span id="preview-antes-name" style="font-size:0.8em; color: var(--text-secondary); display:none;"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="foto-depois" style="display: block; margin-bottom: 5px;">Medio Después * (Imagen o Video)</label>
+                    <input type="file" id="foto-depois" name="foto_depois" accept="image/*,video/mp4,video/quicktime,video/x-msvideo,video/webm" required style="display: block; width: 100%;">
+                    <div id="preview-depois-container" style="margin-top: 5px;">
+                        <img id="preview-depois-img" src="#" alt="Vista Previa Después" style="max-width: 100px; max-height: 100px; display: none;" />
+                        <video id="preview-depois-vid" style="max-width: 150px; max-height: 100px; display: none;" controls></video>
+                         <span id="preview-depois-name" style="font-size:0.8em; color: var(--text-secondary); display:none;"></span>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="foto-descricao" style="display: block; margin-bottom: 5px;">Descripción (Opcional)</label>
+                    <input type="text" id="foto-descricao" name="descricao" placeholder="Ej: Armonización Facial - Antes/Después" style="width: 100%; padding: 8px; border: 1px solid var(--border-color); border-radius: 4px;">
+                </div>
+                <div class="form-actions" style="display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px;">
+                     <button type="button" class="btn-outline cancel-upload-btn">Cancelar</button>
+                    <button type="submit" class="btn-primary">Subir Medios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

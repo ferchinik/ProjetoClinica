@@ -1,0 +1,129 @@
+<section id="medidas-novo" class="page">
+    <header class="page-header">
+        <h1>Registrar Novas Medidas Corporais</h1>
+        <a href="#" class="back-button" data-page="cliente-detalhes" id="back-to-client-details-btn"
+            style="margin-bottom: 10px; display: inline-flex; align-items: center;">
+            <i class="fas fa-arrow-left"></i> Voltar para Detalhes do Cliente
+        </a>
+    </header>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 id="form-medidas-cliente-nome">Medidas para: [Carregando nome...]</h3>
+        </div>
+        <div class="card-body">
+            <form id="nova-medida-form" class="form-grid">
+                <input type="hidden" id="medida-cliente-id" name="cliente_id">
+
+                <div class="form-group">
+                    <label for="medida-data">Data da Medição *</label>
+                    <input type="date" id="medida-data" name="data_medicao" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-peso">Peso (kg)</label>
+                    <input type="number" step="0.01" id="medida-peso" name="peso_kg" placeholder="Ex: 65.50">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-altura">Altura (cm)</label>
+                    <input type="number" id="medida-altura" name="altura_cm" placeholder="Ex: 170">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-perc-gordura">Percentual de Gordura (%)</label>
+                    <input type="number" step="0.01" id="medida-perc-gordura" name="perc_gordura_corporal"
+                        placeholder="Ex: 22.5">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-massa-muscular">Massa Muscular (kg)</label>
+                    <input type="number" step="0.01" id="medida-massa-muscular" name="massa_muscular_kg"
+                        placeholder="Ex: 50.2">
+                </div>
+
+                <div class="form-group full-width section-title-divider">
+                    <h4>Circunferências (cm)</h4>
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-braco-d">Braço Direito</label>
+                    <input type="number" step="0.01" id="medida-circ-braco-d" name="circ_braco_d_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-braco-e">Braço Esquerdo</label>
+                    <input type="number" step="0.01" id="medida-circ-braco-e" name="circ_braco_e_cm">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-antebraco-d">Antebraço Direito</label>
+                    <input type="number" step="0.01" id="medida-circ-antebraco-d" name="circ_antebraco_d_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-antebraco-e">Antebraço Esquerdo</label>
+                    <input type="number" step="0.01" id="medida-circ-antebraco-e" name="circ_antebraco_e_cm">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-peitoral">Peitoral</label>
+                    <input type="number" step="0.01" id="medida-circ-peitoral" name="circ_peitoral_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-abdomen">Abdômen</label>
+                    <input type="number" step="0.01" id="medida-circ-abdomen" name="circ_abdomen_cm">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-cintura">Cintura</label>
+                    <input type="number" step="0.01" id="medida-circ-cintura" name="circ_cintura_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-quadril">Quadril</label>
+                    <input type="number" step="0.01" id="medida-circ-quadril" name="circ_quadril_cm">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-coxa-d">Coxa Direita</label>
+                    <input type="number" step="0.01" id="medida-circ-coxa-d" name="circ_coxa_d_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-coxa-e">Coxa Esquerda</label>
+                    <input type="number" step="0.01" id="medida-circ-coxa-e" name="circ_coxa_e_cm">
+                </div>
+
+                <div class="form-group">
+                    <label for="medida-circ-panturrilha-d">Panturrilha Direita</label>
+                    <input type="number" step="0.01" id="medida-circ-panturrilha-d" name="circ_panturrilha_d_cm">
+                </div>
+                <div class="form-group">
+                    <label for="medida-circ-panturrilha-e">Panturrilha Esquerda</label>
+                    <input type="number" step="0.01" id="medida-circ-panturrilha-e" name="circ_panturrilha_e_cm">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="medida-observacoes">Observações</label>
+                    <textarea id="medida-observacoes" name="observacoes" rows="3"></textarea>
+                </div>
+
+                <div class="form-group full-width form-actions">
+                    <button type="button" class="btn-outline cancel-btn" data-page="cliente-detalhes"
+                        id="cancel-nova-medida-btn">Cancelar</button>
+                    <button type="submit" class="btn-primary save-btn">Salvar Medidas</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<style>
+    .section-title-divider {
+        border-top: 1px solid var(--border-color);
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .section-title-divider h4 {
+        margin-bottom: 10px;
+        color: var(--text-primary);
+    }
+</style>

@@ -1,0 +1,69 @@
+<section id="produto-novo" class="page">
+  <header class="page-header">
+    <h1>Nuevo Producto</h1>
+    <a href="#" class="back-button" data-page="estoque">
+      <i class="fas fa-arrow-left"></i> Volver a Inventario
+    </a>
+  </header>
+
+  <div class="card">
+    <div class="card-header">
+      <h3>Información del Producto</h3>
+    </div>
+    <div class="card-body">
+      <form id="product-form" class="form-grid">
+        <div class="form-group full-width">
+          <label>Foto del Producto *</label>
+          <div class="file-upload">
+            <input type="file" id="product-photo" name="photo" accept="image/*" required />
+            <label for="product-photo" class="file-upload-label">
+              <i class="fas fa-cloud-upload-alt"></i> Seleccionar Imagen
+            </label>
+            <div class="file-preview">
+              <img id="preview-image" src="#" alt="Vista previa de la imagen"
+                style="display: none; width: 100px; height: 100px; object-fit: cover; margin-top: 10px; border-radius: var(--radius);">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="product-title">Título *</label>
+          <input type="text" id="product-title" name="title" required />
+        </div>
+
+        <div class="form-group">
+          <label for="categoriaSelect">Categoría *</label>
+          <select id="categoriaSelect" name="category" required>
+            <option value="" disabled selected>Seleccionar categoría</option>
+            <option value="">Todas las Categorías</option>
+            <option value="Consumibles">Consumibles</option>
+            <option value="Productos">Productos</option>
+            <option value="Equipos">Equipos</option>
+            <option value="Otros">Otros</option>
+            <option value="nueva">Crear nueva categoría</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="novaCategoria-group" style="display: none;">
+          <label for="novaCategoria">Nombre Nueva Categoría *</label>
+          <input type="text" id="novaCategoria" name="novaCategoria" placeholder="Ingrese nueva categoría" />
+        </div>
+
+        <div class="form-group">
+          <label for="product-price">Valor (Gs.) *</label>
+          <input type="number" id="product-price" name="price" step="any" min="0" required placeholder="Ej: 150000" />
+        </div>
+
+        <div class="form-group">
+          <label for="product-stock">Stock *</label>
+          <input type="number" id="product-stock" name="stock" min="0" required placeholder="Ej: 10" />
+        </div>
+
+        <div class="form-group full-width form-actions">
+          <button type="button" class="btn-outline cancel-btn" data-page="estoque">Cancelar</button>
+          <button type="submit" class="btn-primary save-btn">Guardar Producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

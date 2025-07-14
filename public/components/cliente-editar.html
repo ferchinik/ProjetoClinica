@@ -1,0 +1,83 @@
+<section id="cliente-editar" class="page"> <header class="page-header">
+    <h1>Editar Cliente</h1>
+    <a href="#" class="back-button" data-page="clientes"><i class="fas fa-arrow-left"></i> Volver a Clientes</a>
+</header>
+
+<div class="card">
+    <div class="card-header">
+        <h3>Información Personal</h3>
+    </div>
+    <div class="card-body">
+        <form id="edit-client-form" class="form-grid" method="POST" enctype="multipart/form-data">
+            <input type="hidden" id="edit-client-id" name="id">
+
+            <div class="form-group full-width">
+                 <label>Foto de Perfil Actual</label>
+                 <div class="current-photo-preview" style="margin-bottom: 15px;">
+                     <img id="current-client-photo-preview-img" src="img/users/default-avatar.png" alt="Foto Actual" style="max-width: 100px; max-height: 100px; border-radius: 50%; display: block;">
+                     <span id="current-client-photo-status" style="font-size: 0.8em; color: #666;">(Ninguna foto registrada)</span>
+                 </div>
+                 <label>Cambiar Foto de Perfil</label>
+                 <div class="file-upload">
+                     <input type="file" id="edit-client-photo" name="photo" accept="image/*">
+                     <label for="edit-client-photo" class="file-upload-label">
+                         <i class="fas fa-cloud-upload-alt"></i> Seleccionar Nueva Imagen
+                     </label>
+                     <div class="file-preview" id="edit-client-photo-preview" style="margin-top: 10px;">
+                         </div>
+                 </div>
+             </div>
+
+            <div class="form-group">
+                <label for="edit-client-name">Nombre Completo *</label>
+                <input type="text" id="edit-client-name" name="nome_completo" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-client-email">Correo Electrónico *</label>
+                <input type="email" id="edit-client-email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-client-phone-country">Teléfono *</label>
+                <div class="phone-input-group">
+                    <select id="edit-client-phone-country" name="phone_country" class="phone-country-select">
+                        <option value="595">PY (+595)</option>
+                        <option value="55">BR (+55)</option>
+                        <option value="54">AR (+54)</option>
+                        </select>
+                    <input type="text" id="edit-client-phone-ddd" name="phone_ddd" placeholder="DDD" class="phone-ddd-input">
+                    <input type="text" id="edit-client-phone-number" name="phone_number" placeholder="Número" class="phone-number-input" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit-client-birth">Fecha de Nacimiento</label>
+                <input type="date" id="edit-client-birth" name="data_nascimento">
+            </div>
+             <div class="form-group">
+                <label for="edit-client-address">Dirección</label>
+                <input type="text" id="edit-client-address" name="endereco">
+            </div>
+            <div class="form-group">
+                <label for="edit-client-city">Ciudad</label>
+                <input type="text" id="edit-client-city" name="cidade">
+            </div>
+             <div class="form-group">
+                <label for="edit-client-document">Documento de Identidad</label>
+                <input type="text" id="edit-client-document" name="documento_identidade">
+            </div>
+            <div class="form-group">
+                <label for="edit-client-profession">Profesión</label>
+                <input type="text" id="edit-client-profession" name="profissao">
+            </div>
+            <div class="form-group full-width">
+                <label for="edit-client-notes">Observaciones</label>
+                <textarea id="edit-client-notes" name="observacoes" rows="3"></textarea>
+            </div>
+
+            <div class="form-group full-width form-actions">
+                <button type="button" class="btn-outline cancel-btn" data-page="clientes">Cancelar</button>
+                <button type="submit" class="btn-primary save-btn">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+</section>

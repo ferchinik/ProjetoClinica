@@ -1,0 +1,31 @@
+/* Centraliza o contêiner da logo e adiciona espaçamento */
+.sidebar .logo {
+    padding: 20px 0;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+}
+
+/* Define o tamanho da logo para a barra lateral expandida */
+.sidebar .logo .logo-normal {
+    display: block;
+    width: 70px; /* Tamanho final e equilibrado */
+    height: auto;
+    transition: width 0.3s ease; /* Adiciona uma transição suave */
+}
+
+/* Esconde a logo "pequena" que não estamos mais a usar */
+.sidebar .logo .logo-small {
+    display: none;
+}
+
+/* Ajuste para quando a barra lateral estiver encolhida */
+@media (max-width: 992px) {
+    .sidebar .logo {
+        padding: 15px 0;
+    }
+    .sidebar .logo .logo-normal {
+        width: 55px; /* Tamanho para a barra encolhida */
+    }
+}

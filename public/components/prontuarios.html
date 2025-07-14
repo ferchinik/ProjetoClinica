@@ -1,0 +1,98 @@
+<section id="prontuarios" class="page">
+    <header class="page-header">
+        <h1>Historiales Clínicos</h1>
+        <button class="btn-primary" disabled title="Funcionalidade não implementada"><i class="fas fa-plus"></i> Nuevo
+            Historial</button>
+    </header>
+
+    <div class="search-bar" style="margin-bottom: 30px;">
+        <input type="text" placeholder="Buscar historial..." disabled title="Busca não implementada">
+        <button disabled><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="appointments-container card">
+        <div class="card-header">
+            <h3>Historial de Citas Recientes</h3>
+        </div>
+        <div class="card-body" style="padding: 0;">
+            <div class="table-responsive">
+                <table class="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Cliente</th>
+                            <th>Procedimiento</th>
+                            <th>Profesional</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="appointments-table-body">
+                        <tr>
+                            <td colspan="7" class="loading-message" style="text-align: center; padding: 20px;">
+                                <i class="fas fa-spinner fa-spin"></i> Cargando citas...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Estética - Sistema de Gestión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/logo-fix.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="css/cliente-detalhes.css">
+    <link rel="stylesheet" href="css/novo-cliente.css">
+    <link rel="stylesheet" href="css/novo-produto.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+
+<body class="theme-light">
+    <div class="app-container">
+        <div id="sidebar-container">
+        </div>
+
+        <main class="content">
+            <div id="include-dashboard"></div>
+            <div id="include-clientes"></div>
+            <div id="include-cliente-detalhes"></div>
+            <div id="include-novo-cliente"></div>
+            <div id="agendamento-container"></div>
+            <div id="include-financeiro"></div>
+            <div id="include-novo-registro-financeiro"></div>
+            <div id="estoque-container"></div>
+            <div id="include-novo-produto"></div>
+            <div id="include-editar-produto"></div>
+            <div id="include-lembretes"></div>
+            <div id="relatorios-container"></div>
+            <div id="include-financeiro-editar"></div>
+            <div id="include-nueva-cita"></div>
+            <div id="include-editar-cita"></div>
+            <div id="include-cliente-editar"></div>
+            <div id="include-nova-medida"></div>
+            <div id="include-anamnese-form"></div>
+            <div id="include-prontuarios"></div>
+        </main>
+    </div>
+
+    <script src="js/component-loader.js" type="module"></script>
+    <script src="js/navigation.js" type="module"></script>
+    <script src="js/theme-switcher.js" type="module"></script>
+    <script src="js/notification.js" type="module"></script>
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>

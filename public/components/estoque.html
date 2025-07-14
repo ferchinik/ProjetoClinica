@@ -1,0 +1,37 @@
+<section id="estoque" class="page">
+  <header class="page-header">
+    <h1>Gestión de Inventario</h1>
+    <button class="btn-primary" id="new-product-btn">
+      <i class="fas fa-plus"></i> Nuevo Producto
+    </button>
+  </header>
+
+  <div class="inventory-header">
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar producto..." />
+      <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="inventory-filters">
+      <select id="filter-category" class="form-select">
+        <option value="">Todas las Categorías</option>
+        <option value="Consumibles">Consumibles</option>
+        <option value="Productos">Productos</option>
+        <option value="Equipos">Equipos</option>
+        <option value="Otros">Otros</option>
+      </select>
+      <select id="filter-stock" class="form-select">
+        <option value="">Todos los Estados</option>
+        <option value="in-stock">En Stock</option>
+        <option value="warning">Stock Bajo</option>
+        <option value="critical">Sin Stock</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="inventory-grid">
+    <p style="text-align: center; padding: 20px; color: var(--text-secondary);">Cargando productos...</p>
+  </div>
+
+  <div class="pagination-controls">
+  </div>
+</section>

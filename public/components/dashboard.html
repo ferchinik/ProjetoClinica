@@ -1,0 +1,111 @@
+<section id="dashboard" class="page active">
+    <header class="page-header">
+        <h1>Panel Principal</h1>
+    </header>
+
+    <div class="dashboard-grid">
+        <div class="card appointments-card">
+            <div class="card-header">
+                <h3>Citas de Hoy</h3>
+                <span class="date-badge" id="dashboard-today-date"></span>
+            </div>
+            <div class="card-body">
+                <div class="appointments-container" id="dashboard-appointments-container">
+                    <p class="loading-message" style="text-align: center; padding: 20px; color: var(--text-secondary);">Cargando citas...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Resumen Financiero</h3>
+            </div>
+            <div class="card-body">
+                <div class="financial-summary">
+                    <div class="metric">
+                        <span class="label">Hoy</span>
+                        <span class="value" id="summary-today">€ 0,00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Esta Semana</span>
+                        <span class="value" id="summary-week">€ 0,00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Este Mes</span>
+                        <span class="value" id="summary-month">€ 0,00</span>
+                    </div>
+                </div>
+                <div class="chart-container" style="height: 200px; position: relative;">
+                    <canvas id="dashboard-revenue-chart"></canvas>
+                    <p id="chart-loading-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--text-secondary);">Cargando gráfico...</p>
+                    <p id="chart-error-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--danger-color); display: none;"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Inventario Crítico</h3>
+            </div>
+            <div class="card-body">
+                <ul class="stock-list" id="critical-stock-list">
+                    <p class="loading-message" style="text-align: center; padding: 10px 0; color: var(--text-secondary);">Cargando...</p>
+                </ul>
+                <div class="chart-container" style="height: 180px; position: relative; margin-top: 20px;">
+                     <canvas id="dashboard-inventory-chart"></canvas>
+                     <p id="inventory-chart-loading-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--text-secondary);">Cargando gráfico...</p>
+                     <p id="inventory-chart-error-message" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--danger-color); display: none;"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card birthday-card">
+           <div class="card-header">
+               <h3>Cumpleaños de Hoy</h3>
+               <span class="date-badge" id="today-birthday-date">DD de Mes</span>
+           </div>
+            <div class="card-body">
+                <div class="birthday-list" id="todays-birthdays-list"> <p class="loading-message" style="text-align: center; padding: 10px 0; color: var(--text-secondary);">Cargando...</p>
+                 </div>
+                 <div class="birthday-footer" id="today-birthday-footer" style="display: none;">
+                     <button class="btn-outline btn-block" id="send-all-congrats-whatsapp-btn">
+                        <i class="fas fa-comment-dots"></i> Enviar Felicitaciones a Todos
+                     </button>
+                 </div>
+            </div>
+        </div>
+
+        <div class="card upcoming-birthday-card">
+           <div class="card-header">
+               <h3>Próximos Cumpleaños</h3>
+           </div>
+            <div class="card-body">
+                <div class="birthday-list" id="upcoming-birthdays-list"> <p class="loading-message" style="text-align: center; padding: 10px 0; color: var(--text-secondary);">Cargando...</p>
+                 </div>
+                 <div class="birthday-footer" id="upcoming-birthday-footer" style="display: none;">
+                     <button class="btn-outline btn-block"><i class="fas fa-envelope"></i> Enviar Recordatorios</button>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    .card-header {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.card-body {
+  padding: 16px;
+  flex-grow: 1;
+}
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+     .stat-value {
+    font-size: 1rem; 
+    font-weight: 600;
+    color: #050505;
+  }
+</style>

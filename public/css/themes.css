@@ -1,0 +1,191 @@
+/* Theme Variables */
+.theme-light {
+    --bg-primary: #f2e8de; /* Fundo bege claro especificado */
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f8f5f0; /* Bege mais claro para áreas terciárias */
+    --text-primary: #333333;
+    --text-secondary: #777777;
+    --border-color: #e0d8c8; /* Borda em tom bege */
+    --sidebar-bg: #bedab1; /* Verde especificado para o menu */
+    --sidebar-text: #4a5c2e; /* Texto verde escuro para contraste */
+    --sidebar-hover: #a9c795; /* Verde mais escuro para hover */
+    --accent-color: #8baa7f; /* Verde médio para acentos */
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --btn-primary-bg: #8baa7f;
+    --btn-primary-text: #ffffff;
+    --btn-primary-hover: #7a9970;
+}
+
+/* Segunda opção de cor (tema coral/rosa) */
+.theme-dark {
+    --bg-primary: #fff5f5; /* Fundo rosa bem claro */
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #fff0f0; /* Rosa mais claro para áreas terciárias */
+    --text-primary: #333333;
+    --text-secondary: #777777;
+    --border-color: #f5c4c4; /* Borda em tom rosa claro */
+    --sidebar-bg: #f47c7c; /* Coral médio */
+    --sidebar-text: #ffffff;
+    --sidebar-hover: #e76161; /* Coral mais escuro para hover */
+    --accent-color: #e76161; /* Coral mais escuro para acentos */
+    --card-shadow: 0 2px 10px rgba(244, 124, 124, 0.15);
+    --btn-primary-bg: #f47c7c;
+    --btn-primary-text: #ffffff;
+    --btn-primary-hover: #e76161;
+}
+
+/* Apply Theme Variables */
+.theme-light .content,
+.theme-dark .content {
+    background-color: var(--bg-primary);
+}
+
+.theme-light .card,
+.theme-dark .card,
+.theme-light .client-card,
+.theme-dark .client-card,
+.theme-light .product-card,
+.theme-dark .product-card,
+.theme-light .records-list,
+.theme-dark .records-list,
+.theme-light .transactions-container,
+.theme-dark .transactions-container,
+.theme-light .calendar-container,
+.theme-dark .calendar-container,
+.theme-light .report-card,
+.theme-dark .report-card {
+    background-color: var(--bg-secondary);
+    box-shadow: var(--card-shadow);
+}
+
+.theme-light .card-header,
+.theme-dark .card-header,
+.theme-light .transactions-header,
+.theme-dark .transactions-header,
+.theme-light .transactions-table th,
+.theme-dark .transactions-table th,
+.theme-light .chart-container,
+.theme-dark .chart-container,
+.theme-light .report-chart,
+.theme-dark .report-chart,
+.theme-light .product-image,
+.theme-dark .product-image {
+    background-color: var(--bg-tertiary);
+}
+
+.theme-light .page-header h1,
+.theme-dark .page-header h1,
+.theme-light .card-header h3,
+.theme-dark .card-header h3,
+.theme-light .transactions-header h3,
+.theme-dark .transactions-header h3,
+.theme-light .value,
+.theme-dark .value,
+.theme-light .client-header h3,
+.theme-dark .client-header h3,
+.theme-light .product-name,
+.theme-dark .product-name,
+.theme-light .record-client-info h4,
+.theme-dark .record-client-info h4 {
+    color: var(--text-primary);
+}
+
+.theme-light .details p,
+.theme-dark .details p,
+.theme-light .label,
+.theme-dark .label,
+.theme-light .chart-placeholder,
+.theme-dark .chart-placeholder,
+.theme-light .client-info p,
+.theme-dark .client-info p,
+.theme-light .product-category,
+.theme-dark .product-category,
+.theme-light .record-client-info p,
+.theme-dark .record-client-info p,
+.theme-light .record-date,
+.theme-dark .record-date {
+    color: var(--text-secondary);
+}
+
+.theme-light .page-header,
+.theme-dark .page-header,
+.theme-light .card-header,
+.theme-dark .card-header,
+.theme-light .transactions-header,
+.theme-dark .transactions-header,
+.theme-light .transactions-table td,
+.theme-dark .transactions-table td,
+.theme-light .transactions-table th,
+.theme-dark .transactions-table th,
+.theme-light .appointment,
+.theme-dark .appointment,
+.theme-light .stock-list li,
+.theme-dark .stock-list li,
+.theme-light .client-list li,
+.theme-dark .client-list li,
+.theme-light .client-header,
+.theme-dark .client-header,
+.theme-light .client-actions,
+.theme-dark .client-actions,
+.theme-light .product-actions,
+.theme-dark .product-actions,
+.theme-light .record-item,
+.theme-dark .record-item,
+.theme-light .report-footer,
+.theme-dark .report-footer {
+    border-color: var(--border-color);
+}
+
+.theme-light .sidebar,
+.theme-dark .sidebar {
+    background-color: var(--sidebar-bg);
+}
+
+.theme-light .menu a,
+.theme-dark .menu a,
+.theme-light .theme-toggle button,
+.theme-dark .theme-toggle button {
+    color: var(--sidebar-text);
+}
+
+.theme-light .menu a:hover,
+.theme-dark .menu a:hover,
+.theme-light .menu a.active,
+.theme-dark .menu a.active {
+    background-color: var(--sidebar-hover);
+}
+
+/* Ajustes específicos para logos nos diferentes temas */
+.theme-light .logo .logo-small {
+    content: url('../img/logo-sm.png');
+}
+
+.theme-dark .logo .logo-small {
+    content: url('../img/logo.png');
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Theme Toggle Text */
+.theme-toggle button:after {
+    margin-left: 8px;
+    font-size: 0.85rem;
+}
+
+/* Theme Toggle Animation */
+.theme-toggle button i {
+    transition: transform 0.3s ease;
+}
+
+.theme-dark .theme-toggle button i {
+    transform: rotate(180deg);
+}
