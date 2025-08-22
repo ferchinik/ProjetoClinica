@@ -1,5 +1,8 @@
 // controllers/userController.js
 import UserModel from '../models/userModel.js';
+import jwt from 'jsonwebtoken';
+import fs from 'fs';
+import path from 'path';
 
 export default class UserController {
     static async register(req, res) {
@@ -29,20 +32,55 @@ export default class UserController {
         try {
             const user = await UserModel.loginUser(req.body);
 
-            req.session.userId = user.id;
-            req.session.userEmail = user.email;
-            req.session.userName = user.nombre; // Guardando o nome na sessão
+            // Gera o Token JWT
+            const payload = {
+                id: user.id,
+                email: user.email,
+                nome: user.nombre
+            };
 
-            console.log(`Sessão criada para usuário ID: ${user.id} (${user.nombre})`);
+                        // Fallback to read .env file directly if process.env is not populated
+            let jwtSecret = process.env.JWT_SECRET;
+            if (!jwtSecret) {
+                try {
+                    const envPath = path.resolve(process.cwd(), '.env');
+                    const envFileContent = fs.readFileSync(envPath, { encoding: 'utf8' });
+                    const match = envFileContent.match(/^JWT_SECRET=(.*)$/m);
+                    if (match) {
+                        jwtSecret = match[1].trim();
+                    }
+                } catch (e) {
+                    console.error('Could not read .env file to get JWT_SECRET', e);
+                    return res.status(500).json({ success: false, message: 'Internal server error: JWT secret not configured.' });
+                }
+            }
+
+            if (!jwtSecret) {
+                 return res.status(500).json({ success: false, message: 'JWT_SECRET not found in .env file.' });
+            }
+
+            const token = jwt.sign(payload, jwtSecret, { expiresIn: '8h' });
+
+            // Envia o token em um cookie httpOnly
+            res.cookie('token', token, {
+                httpOnly: true, // Impede acesso via JavaScript no frontend
+                secure: process.env.NODE_ENV === 'production', // Usar apenas em HTTPS
+                maxAge: 1000 * 60 * 60 * 8, // 8 horas
+                sameSite: 'lax' // Proteção contra CSRF
+            });
+
+            console.log(`Token JWT gerado para usuário ID: ${user.id} (${user.nombre})`);
+
+            // A resposta JSON agora pode ser mais simples, 
+            // pois os dados do usuário estão no token (que será usado pelo backend)
             res.status(200).json({
                 success: true,
                 message: 'Login bem-sucedido!',
-                user: { id: user.id, email: user.email, nome: user.nombre } // Mantendo 'nome' para consistência
+                user: { id: user.id, email: user.email, nome: user.nombre }
             });
 
         } catch (error) {
             console.error("Erro no login:", error.message);
-            // Retorna 401 para credenciais inválidas ou erro interno
             res.status(401).json({ success: false, message: error.message || 'Falha no login' });
         }
     }

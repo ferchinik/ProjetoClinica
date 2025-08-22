@@ -10,15 +10,9 @@ router.post('/login', UserController.login);
 
 router.get('/profissionais', UserController.listAll); 
 router.post('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            console.error("Erro ao destruir sessão:", err);
-            return res.status(500).send('Erro ao fazer logout');
-        }
-        res.clearCookie('connect.sid'); 
-        console.log("Sessão destruída no backend.");
-        res.status(200).send('Logout bem-sucedido');
-    });
+    res.clearCookie('token');
+    console.log("Cookie 'token' removido. Usuário deslogado.");
+    res.status(200).send('Logout bem-sucedido');
 });
 
 export default router;

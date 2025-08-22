@@ -1,10 +1,12 @@
 // clinica/serve.js (VERSÃO COMPLETA E ATUALIZADA COM ANAMNESE)
 
+
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import session from 'express-session';
+import cookieParser from 'cookie-parser';
+import jwt from 'jsonwebtoken';
 import fs from 'fs';
 import ExcelJS from 'exceljs';
 import { connectDatabase } from './config/db.js';
@@ -40,20 +42,10 @@ console.log(`Diretórios de upload verificados/criados em: ${uploadsDirRoot}`);
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'clinica_estetica_session_!@#$%',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: true,
-        maxAge: 1000 * 60 * 60 * 8, 
-        sameSite: 'lax'
-    }
-}));
+app.use(cookieParser());
 
 app.use((req, res, next) => {
-    console.log(`[Server] ${req.method} ${req.originalUrl} — SessionID: ${req.sessionID} — User: ${req.session?.userId ?? 'anon'}`);
+    console.log(`[Server] ${req.method} ${req.originalUrl}`);
     next();
 });
 app.use(express.static(path.join(projectRoot, 'public')));
@@ -61,16 +53,46 @@ app.use('/uploads', express.static(uploadsDirRoot));
 console.log(`Servindo estáticos de: ${path.join(projectRoot, 'public')}`);
 console.log(`Servindo uploads de: ${uploadsDirRoot} via /uploads`);
 const isAuthenticated = (req, res, next) => {
-    if (req.session?.userId) {
-        console.log(`[Auth] Usuário ${req.session.userId} autenticado. Permitindo acesso a ${req.originalUrl}`);
-        return next();
+    const token = req.cookies.token;
+
+    if (!token) {
+        if (req.originalUrl.startsWith('/api/')) {
+            console.warn(`[Auth] Acesso não autorizado à API ${req.originalUrl} (sem token).`);
+            return res.status(401).json({ success: false, message: 'Não autorizado. Faça login.' });
+        }
+        console.warn(`[Auth] Acesso não autorizado a ${req.originalUrl}. Redirecionando para /login.html`);
+        return res.redirect('/login.html');
     }
-    if (req.originalUrl.startsWith('/api/')) {
-        console.warn(`[Auth] Acesso não autorizado à API ${req.originalUrl} (sem sessão).`);
-        return res.status(401).json({ success: false, message: 'Não autorizado. Faça login.' });
+
+    try {
+                let jwtSecret = process.env.JWT_SECRET;
+        if (!jwtSecret) {
+            try {
+                const envPath = path.resolve(process.cwd(), '.env');
+                const envFileContent = fs.readFileSync(envPath, { encoding: 'utf8' });
+                const match = envFileContent.match(/^JWT_SECRET=(.*)$/m);
+                if (match) {
+                    jwtSecret = match[1].trim();
+                }
+            } catch (e) {
+                console.error('Could not read .env file to get JWT_SECRET', e);
+                return res.status(500).json({ success: false, message: 'Internal server error: JWT secret not configured.' });
+            }
+        }
+
+        if (!jwtSecret) {
+             return res.status(500).json({ success: false, message: 'JWT_SECRET not found in .env file.' });
+        }
+
+        const decoded = jwt.verify(token, jwtSecret);
+        req.user = decoded; // Adiciona os dados do usuário (ex: id, email) ao request
+        console.log(`[Auth] Usuário ${req.user.id} autenticado via JWT. Permitindo acesso a ${req.originalUrl}`);
+        next();
+    } catch (error) {
+        console.error('[Auth] Falha na verificação do JWT:', error.message);
+        res.clearCookie('token');
+        return res.status(403).json({ success: false, message: 'Token inválido ou expirado.' });
     }
-    console.warn(`[Auth] Acesso não autorizado a ${req.originalUrl}. Redirecionando para /login.html`);
-    return res.redirect('/login.html');
 };
 app.use(userRoutes);
 console.log("Rotas públicas (usuário) configuradas.");
